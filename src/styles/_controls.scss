@@ -1,5 +1,23 @@
 .controls{
-    width: 400px;
-    height: 200px;
-    background-color: $controls-background-color;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    h3{
+        margin: 0 1rem;
+    }
+    .labels{
+        display: flex;
+        flex-direction: row;
+    }
+    .speedCtrl{
+        margin: 1rem 0;
+        text-align: center;
+        > span{
+            margin: 0 10px;
+        } 
+    }
+    .ctrlBtns{
+        display: flex;
+        justify-content: space-around;
+    }
 }
