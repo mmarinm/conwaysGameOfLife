@@ -1,17 +1,24 @@
 import React from 'react'
-import Cell from './Cell'
+import CellConnect from '../Container/CellConnect'
+import PropTypes from 'prop-types'
 const s = require('../styles/index.scss')
 
-const Row = () => {
+const Row = (props) => {
+    const {collumnArr} = props;
+
     return (
         <div className={s.row}>
         {
-            Array(20).fill(null).map((item, indx) => 
-                <Cell className={s.cell} key={indx}/>
+            collumnArr.map((item, indx) => 
+                <CellConnect className={s.cell} key={indx} active={item.showing} id={item.id}/>
             )
         }
         </div>
     )
+}
+
+Row.PropTypes = {
+    collumnArr: PropTypes.array.isRequired,
 }
 
 export default Row
