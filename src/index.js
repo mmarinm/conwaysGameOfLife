@@ -12,7 +12,7 @@ store.subscribe(() => {
   console.log('New state', store.getState());
 })
 
-store.dispatch(actions.generateRandomGrid())
+// store.dispatch(actions.generateRandomGrid())
 
 ReactDOM.render(
   <Provider store={store}>

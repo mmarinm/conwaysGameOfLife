@@ -8,12 +8,14 @@ const style = {
   margin: "0 5px",
 };
 
-const Controls = () => {
+const Controls = ({onRandomClick, start, onStartClick, onClearClick,
+onStepClick, generation, population}) => {
+
     return(
         <div className={s.controls}>
             <div className={s.labels}>
-                <h3>Generations: 2</h3>
-                <h3>Population: 2899</h3>
+                <h3>Generations: {generation}</h3>
+                <h3>Population: {population}</h3>
             </div>
             <div className={s.speedCtrl}>
                 <FloatingActionButton mini={true} style={style}>
@@ -25,10 +27,10 @@ const Controls = () => {
                 </FloatingActionButton>
             </div>
             <div className={s.ctrlBtns}>
-            <RaisedButton style={style} primary={true} label={"Start"} labelStyle={{textTransform: 'none'}}></RaisedButton>
-            <RaisedButton style={style}>Step</RaisedButton>
-            <RaisedButton style={style}>Clear</RaisedButton>
-            <RaisedButton style={style}>Random</RaisedButton>
+            <RaisedButton style={style} primary={true} label={!start ? 'Start' : 'Stop'} onTouchTap={onStartClick} labelStyle={{textTransform: 'none'}}></RaisedButton>
+            <RaisedButton style={style} onTouchTap={onStepClick} disabled={!start}>Step</RaisedButton>
+            <RaisedButton style={style} onTouchTap={() => onClearClick(0)}>Clear</RaisedButton>
+            <RaisedButton style={style} onTouchTap={() => onRandomClick(1)}>Random</RaisedButton>
             </div>
         </div>
     )

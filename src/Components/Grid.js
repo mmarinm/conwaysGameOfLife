@@ -8,7 +8,7 @@ const Grid = ({board}) => {
     return (
         <div className={s.grid}>
             {
-                board.map((item, index) => <Row key={index} collumnArr={item} />)
+                board.map((item, index) => <Row key={index} collumnArr={item} x={index}/>)
             }
         </div>
     )

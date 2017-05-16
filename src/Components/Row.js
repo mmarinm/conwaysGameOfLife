@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 const s = require('../styles/index.scss')
 
 const Row = (props) => {
-    const {collumnArr} = props;
+    const {collumnArr, x} = props;
 
     return (
         <div className={s.row}>
         {
             collumnArr.map((item, indx) => 
-                <CellConnect className={s.cell} key={indx} active={item.showing} id={item.id}/>
+                <CellConnect className={s.cell} key={indx} showing={item.alive} newborn={item.newBorn} x={x} y={indx}/>
             )
         }
         </div>

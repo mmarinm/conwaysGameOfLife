@@ -4,8 +4,8 @@ import {toggleCell} from '../redux/actions/actions'
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCellClick: (id) => {
-      dispatch(toggleCell(id))
+    onCellClick: (x, y) => {
+      dispatch(toggleCell(x, y))
     }
   }
 }
