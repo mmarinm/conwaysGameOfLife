@@ -4,11 +4,11 @@ import Row from './Row'
 
 const s = require('../styles/index.scss');
 
-const Grid = ({board}) => {
+const Grid = ({gameField}) => {
     return (
         <div className={s.grid}>
             {
-                board.map((item, index) => <Row key={index} collumnArr={item} x={index}/>)
+                gameField.board.map((item, index) => <Row key={index} collumnArr={item} x={index}/>)
             }
         </div>
     )

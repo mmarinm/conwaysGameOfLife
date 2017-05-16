@@ -1,14 +1,20 @@
-
 export function generateGrid(rows, collumns, random=false){
-    return Array(rows).fill(null).map((row, indx) => {
+    let population = 0;
+    const board = Array(rows).fill(null).map((row, indx) => {
         return Array(collumns).fill(null).map((collumn, index) => {
             const value = random ? Math.random() > 0.85 : false
+            population += value ? 1: 0;
            return {
                 alive: value,
                 newBorn: value
             }
         })
     })
+
+    return {
+        board,
+        population
+    }
 }
 
 function checkNeighbours(grid, x, y){
@@ -32,12 +38,15 @@ function checkNeighbours(grid, x, y){
     return total;
 }
 
-export function newGrid(grid){
+export function newGrid(gameField){
+    const grid = gameField.board;
+    let population = 0;
     //x represents row index and y column index
-    return grid.map((row, x) => row.map((item, y) => {
+    const board = grid.map((row, x) => row.map((item, y) => {
         const isAlive = item.alive;
         const neighbours= checkNeighbours(grid, x, y);
         if(isAlive){
+            population += 1;
             if(neighbours < 2 || neighbours >3){
                 return {
                     alive: false
@@ -60,4 +69,8 @@ export function newGrid(grid){
             alive: false
         }
     }))
+    return {
+        board,
+        population
+    }
 }

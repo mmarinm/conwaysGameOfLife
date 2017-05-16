@@ -3,7 +3,7 @@ import Grid from '../Components/Grid'
 
 const mapStateToProps = (state) => {
   return {
-    board: state.board
+    gameField: state.gameField
   }
 }
 

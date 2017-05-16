@@ -26,10 +26,10 @@ export function updateGeneration(generation){
   }
 }
 
-export function checkPopulation(population){
+export function updatePopulation(population){
   return {
     type: 'UPDATE_POPULATION',
-    population: population
+    population
   }
 }
 

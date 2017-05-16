@@ -6,8 +6,7 @@ const mapStateToProps = (state) => {
   return {
     start: state.start,
     generation: state.generation,
-    population: state.population,
-    board: state.board
+    population: state.gameField.population,
   }
 }
 

@@ -11,11 +11,25 @@ export const boardReducer = (state=initialState, action) => {
             return generateGrid(numOfRows, numOfCollumns, true)
             
         case 'TOGGLE_CELL':
-            const board = state.slice(0);
+            const board = state.board.slice(0);
+            let population = state.population;
             const cell = board[action.x][action.y];
-            cell.alive = !cell.alive;
-            cell.newBorn = !cell.newBorn;
-            return board
+            if(cell.alive){
+                if(cell.newBorn){
+                    cell.alive = false;
+                    cell.newBorn = false;
+                }
+                cell.alive = false;
+                population -= 1;
+            } else {
+                cell.alive = true
+                cell.newBorn = true;
+                population += 1;
+            }
+            return {
+                board,
+                population
+            }
         case 'UPDATE_GRID':
             return newGrid(state)
         case 'CLEAR_BOARD':
