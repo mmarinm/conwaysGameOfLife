@@ -1,4 +1,17 @@
 .grid{
     display: flex;
     flex-direction: column;
+    margin: 1rem auto;
+}
+
+@media (max-width: 768px) {
+    .grid{
+        margin: 2rem 0;
+    } 
+}
+
+@media (max-width: 485px) {
+    .grid{
+        margin: 2rem;
+    } 
 }

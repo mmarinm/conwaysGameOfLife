@@ -1,3 +1,15 @@
 .row{
     display: flex;
+    min-height: 1rem;
+}
+@media (max-width: 768px) {
+    .row {
+        min-height: 0.6em;
+    } 
+}
+
+@media (max-width: 485px) {
+    .row{
+        min-height: 0.5em;
+    } 
 }

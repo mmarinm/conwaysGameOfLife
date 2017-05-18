@@ -7,9 +7,9 @@ import configureStore from './redux/store/configureStore'
 
 const store = configureStore({});
 
-store.subscribe(() => {
-  console.log('New state', store.getState());
-})
+// store.subscribe(() => {
+//   console.log('New state', store.getState());
+// })
 
 ReactDOM.render(
   <Provider store={store}>

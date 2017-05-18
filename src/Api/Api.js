@@ -2,7 +2,7 @@ export function generateGrid(rows, collumns, random=false){
     let population = 0;
     const board = Array(rows).fill(null).map((row, indx) => {
         return Array(collumns).fill(null).map((collumn, index) => {
-            const value = random ? Math.random() > 0.85 : false
+            const value = random ? Math.floor(Math.random() > 0.85) : 0
             population += value ? 1: 0;
            return {
                 alive: value,
@@ -10,8 +10,8 @@ export function generateGrid(rows, collumns, random=false){
             }
         })
     })
-
     return {
+        clear: !random ? true : false,
         board,
         population
     }
@@ -26,14 +26,14 @@ function checkNeighbours(grid, x, y){
     const leftColumn = y -1 < 0 ? gridLength : y-1;
     const rightColumn = y + 1 > gridLength ? 0 : y+1;
 
-    total += grid[topRow][leftColumn].alive ? 1 : 0;
-    total += grid[topRow][y].alive ? 1 : 0;
-    total += grid[topRow][rightColumn].alive ? 1 : 0;
-    total += grid[x][rightColumn].alive ? 1 : 0;
-    total += grid[x][leftColumn].alive ? 1 : 0;
-    total += grid[bottomRow][leftColumn].alive ? 1 : 0;
-    total += grid[bottomRow][y].alive ? 1 : 0;
-    total += grid[bottomRow][rightColumn].alive ? 1 : 0;
+    total += grid[topRow][leftColumn].alive;
+    total += grid[topRow][y].alive;
+    total += grid[topRow][rightColumn].alive;
+    total += grid[x][rightColumn].alive;
+    total += grid[x][leftColumn].alive;
+    total += grid[bottomRow][leftColumn].alive;
+    total += grid[bottomRow][y].alive;
+    total += grid[bottomRow][rightColumn].alive;
 
     return total;
 }
@@ -49,27 +49,28 @@ export function newGrid(gameField){
             population += 1;
             if(neighbours < 2 || neighbours >3){
                 return {
-                    alive: false
+                    alive: 0
                 }
             } else {
                 return {
-                    alive: true
+                    alive: 1
                 }
             }
         }
         if(!isAlive){
             if(neighbours === 3){
                 return {
-                    alive: true,
-                    newBorn: true
+                    alive: 1,
+                    newBorn: 1
                 }
             }
         }
         return {
-            alive: false
+            alive: 0
         }
     }))
     return {
+        clear: false,
         board,
         population
     }

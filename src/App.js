@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import ControlsConnect from './Container/ControlsConnect'
 import GridConnect from './Container/GridConnect'
 import Header from './Components/Header'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
 import * as actions from './redux/actions/actions'
 
 const s = require('./styles/index.scss');
@@ -21,23 +18,26 @@ class App extends Component {
         const tick = this.props.timerId
         clearInterval(tick)
       } else {
-        const tick = setInterval(() => this.props.updateGrid(), 300);
+        const tick = setInterval(() => this.props.updateGrid(), 250);
         this.props.setTimerId(tick);
       }
     }
   }
 
+  componentWillUnmount() {
+    const tick = this.props.timerId
+    clearInterval(tick)
+  }
+
   render() {
 
     return (
-      <MuiThemeProvider >
-        <div className={s.container}>
-          <Header />
-          <ControlsConnect />
-          <GridConnect/>
-        </div>
-      </MuiThemeProvider>
-    );
+      <div className={s.container}>
+        <Header />
+        <ControlsConnect />
+        <GridConnect/>
+      </div>
+    )
   }
 }
 

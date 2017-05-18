@@ -22,8 +22,10 @@ const Cell = (props) => {
 
 Cell.PropTypes = {
     onCellClick: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired,
-    showing: PropTypes.bool.isRequired
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+    showing: PropTypes.bool.isRequired,
+    newborn: PropTypes.bool.isRequired
 }
 
 export default Cell

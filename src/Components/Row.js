@@ -19,6 +19,7 @@ const Row = (props) => {
 
 Row.PropTypes = {
     collumnArr: PropTypes.array.isRequired,
+    x: PropTypes.number.isRequired
 }
 
 export default Row

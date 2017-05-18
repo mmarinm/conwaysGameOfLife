@@ -5,8 +5,10 @@ import Controls from '../Components/Controls'
 const mapStateToProps = (state) => {
   return {
     start: state.start,
+    timerId: state.gameField.timerId,
     generation: state.generation,
     population: state.gameField.population,
+    clear: state.gameField.clear
   }
 }
 
@@ -16,12 +18,21 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.updateGeneration(generation));
       dispatch(actions.generateRandomGrid());
     },
-    onStartClick:() => {
+    onStartClick:(generation, clear) => {
+      if(clear){
+        dispatch(actions.updateGeneration(generation));
+        dispatch(actions.generateRandomGrid());
+      }
       dispatch(actions.startGame());
     },
-    onClearClick:(generation) => {
-      dispatch(actions.updateGeneration(generation));
-      dispatch(actions.clearBoard());
+    onClearClick:(generation, clear, start) => {
+      if(!clear){
+        dispatch(actions.updateGeneration(generation));
+        dispatch(actions.clearBoard());
+        if(start){
+          dispatch(actions.startGame());
+        }
+      }
     },
     onStepClick: () => {
       dispatch(actions.updateGeneration());

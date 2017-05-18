@@ -1,24 +1,36 @@
 .controls{
+    width: 25rem;
     display: flex;
+    color: $primary;
     flex-direction: column;
-    margin-bottom: 20px;
-    h3{
-        margin: 0 1rem;
-    }
     .labels{
         display: flex;
         flex-direction: row;
-    }
-    .speedCtrl{
         margin: 1rem 0;
-        text-align: center;
-        > span{
-            margin: 0 10px;
-            vertical-align: super;
+        > h3 {
+            width: 50%;
+            text-align: center;
+            > span {
+                color: $secondary;
+            }
         } 
+
     }
     .ctrlBtns{
+        width: 25rem;
         display: flex;
         justify-content: space-around;
+        > button {
+            width: 90px;
+            height: 30px;
+            background-color: $primary;
+            border: $secondary;
+            color: $secondary;
+            cursor: pointer;
+            &:hover {
+                background-color: $secondary;
+                color: $primary;
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ export const boardReducer = (state=initialState, action) => {
                 cell.alive = false;
                 population -= 1;
             } else {
-                cell.alive = true
+                cell.alive = true;
                 cell.newBorn = true;
                 population += 1;
             }
