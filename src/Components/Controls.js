@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const s = require('../styles/index.scss');
 
-const Controls = ({onRandomClick, start, onStartClick, onClearClick,
-onStepClick, generation, population, clear, timerId}) => {
+const Controls = ({start, clear, generation, population, onStartClick, onClearClick,
+onStepClick, onRandomClick}) => {
 
     const nexStepDisable = () => {
         if(start){
@@ -30,6 +31,17 @@ onStepClick, generation, population, clear, timerId}) => {
             </div>
         </div>
     )
+}
+
+Controls.PropTypes = {
+    start: PropTypes.bool.isRequired,
+    clear: PropTypes.bool.isRequired,
+    generation: PropTypes.number.isRequired,
+    population:PropTypes.number.isRequired,
+    onStartClick: PropTypes.func.isRequired, 
+    onClearClick: PropTypes.func.isRequired,
+    onStepClick: PropTypes.func.isRequired,
+    onRandomClick: PropTypes.func.isRequired
 }
 
 export default Controls

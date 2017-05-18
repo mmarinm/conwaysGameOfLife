@@ -5,10 +5,9 @@ import Controls from '../Components/Controls'
 const mapStateToProps = (state) => {
   return {
     start: state.start,
-    timerId: state.gameField.timerId,
+    clear: state.gameField.clear,
     generation: state.generation,
-    population: state.gameField.population,
-    clear: state.gameField.clear
+    population: state.gameField.population
   }
 }
 
