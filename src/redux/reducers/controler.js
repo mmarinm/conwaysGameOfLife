@@ -25,3 +25,11 @@ export const startReducer = (state=false, action) => {
         return state;
     }
 }
+
+export const timerReducer = (state=null, action) => {
+    if(action.type === 'SET_TIMER_ID'){
+        return action.id
+    } else {
+        return state
+    }
+}

@@ -39,6 +39,13 @@ export function startGame(){
   }
 }
 
+export function setTimerId(id){
+  return {
+    type: 'SET_TIMER_ID',
+    id
+  }
+}
+
 export function clearBoard(){
   return {
     type: 'CLEAR_BOARD',

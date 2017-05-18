@@ -28,7 +28,7 @@ onStepClick, generation, population}) => {
             </div>
             <div className={s.ctrlBtns}>
             <RaisedButton style={style} primary={true} label={!start ? 'Start' : 'Stop'} onTouchTap={onStartClick} labelStyle={{textTransform: 'none'}}></RaisedButton>
-            <RaisedButton style={style} onTouchTap={onStepClick} disabled={!start}>Step</RaisedButton>
+            <RaisedButton style={style} onTouchTap={onStepClick} disabled={start}>Step</RaisedButton>
             <RaisedButton style={style} onTouchTap={() => onClearClick(0)}>Clear</RaisedButton>
             <RaisedButton style={style} onTouchTap={() => onRandomClick(1)}>Random</RaisedButton>
             </div>
